@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       flash[:success] = 'Message が正常に投稿されました'
-      redirect_to @message
+      redirect_to messages_url
     else
       flash.now[:danger] = 'Message が投稿されませんでした'
       render :new
@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     if @message.update(message_params)
       flash[:success] = 'Message は正常に更新されましたぜ。'
-      redirect_to @message
+      redirect_to messages_url
     else
       flash.now[:danger] = 'Message は更新されませんでしたぜ。'
       render :edit
