@@ -46,25 +46,25 @@ class MessagesController < ApplicationController
       render :edit
     end
   end
-end
 
   def destroy
     #@message = Message.find(params[:id])
     #set_message
     @message.destroy
     
-    flash[:success] = 'Message は正常に削除されました。。'
+    flash[:success] = 'Message は正常に削除されましたよ！！'
     #redirect_to messages
     redirect_to messages_url
   end
 
-private
-#共通メソッドとして。
-def set_message
-  @message = Message.find(params[:id])
-end
+  private
+  #共通メソッドとして。
+  def set_message
+    @message = Message.find(params[:id])
+  end
 
-# Strong Parameter
-def message_params
-  params.require(:message).permit(:content, :title)
+  # Strong Parameter
+  def message_params
+    params.require(:message).permit(:content, :title)
+  end
 end
